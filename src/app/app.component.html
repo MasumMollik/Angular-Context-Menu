@@ -1,0 +1,13 @@
+<section class="collection" (contextmenu)="$event. preventDefault();">
+  <div class="collection-item" *ngFor="let user of users"
+       (contextmenu)="checkinside($event, user); $event. preventDefault();">
+    {{user.name}}
+  </div>
+</section>
+
+<ng-template #userMenu let-user>
+  <section class="user-menu">
+    <div (click)="delete(user)">Delete {{user.name}}</div>
+    <div>Send to</div>
+  </section>
+</ng-template>
